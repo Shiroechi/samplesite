@@ -20,12 +20,11 @@ def detail(request, member_id):
     return render(request, 'detail.html', {'member': member})
 
 def edit(request, member_id):
-    print(request)
     member = get_object_or_404(Member, pk=member_id)
     member.first_name = request.POST['firstname']
     member.middle_name = request.POST['middlename']
     member.last_name = request.POST['lastname']
-    member.full_clean = request.POST['fullname']
+    member.full_name = request.POST['fullname']
     member.save()
     # Always return an HttpResponseRedirect after successfully dealing
     # with POST data. This prevents data from being posted twice if a
