@@ -19,16 +19,16 @@
         {% csrf_token %}
         <fieldset>
             <label>First name</label>
-            <input type="text" name="firstname" value="{{ member.first_name }}"/>
+            <input type="text" name="first_name" value="{{ member.first_name }}"/>
             <br>
             <label>Middle name</label>
-            <input type="text" name="middlename" value="{{ member.middle_name }}"/>
+            <input type="text" name="middle_name" value="{{ member.middle_name }}"/>
             <br>
             <label>Last name</label>
-            <input type="text" name="lastname" value="{{ member.last_name }}"/>
+            <input type="text" name="last_name" value="{{ member.last_name }}"/>
             <br>
             <label>Full name</label>
-            <input type="text" name="fullname" value="{{ member.full_name }}"/>
+            <input type="text" name="full_name" value="{{ member.full_name }}"/>
             <br>
         </fieldset>
         <input type="submit" value="Edit">

@@ -39,10 +39,10 @@ class EditView(View):
         member = get_object_or_404(Member, pk=member_id)
 
         if form.is_valid():
-            member.first_name = form.cleaned_data['firstname']
-            member.middle_name = form.cleaned_data['middlename']
-            member.last_name = form.cleaned_data['lastname']
-            member.full_name = form.cleaned_data['fullname']
+            member.first_name = form.cleaned_data['first_name']
+            member.middle_name = form.cleaned_data['middle_name']
+            member.last_name = form.cleaned_data['last_name']
+            member.full_name = form.cleaned_data['full_name']
             member.save()
             # Always return an HttpResponseRedirect after successfully dealing
             # with POST data. This prevents data from being posted twice if a
