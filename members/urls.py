@@ -5,9 +5,8 @@ from . import views
 app_name = 'members'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('post/', views.post, name='post'),
-    path('detail/<int:member_id>/', views.detail, name='detail'),
-    path('edit/<int:member_id>/', views.edit, name='edit'),
+    path('', views.IndexView.as_view(), name='index'),
+    path('detail/<int:member_id>/', views.DetailView.as_view(), name='detail'),
+    path('edit/<int:member_id>/', views.EditView.as_view(), name='edit'),
 
 ]

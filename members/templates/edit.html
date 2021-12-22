@@ -10,27 +10,31 @@
     <h1>Edit member</h1>
     <hr>
     
+    {% if error_message %}
+    <h2>{{ error_message }}</h2>
+    <br>
+    {% endif %}
+    
     <form action="{% url 'members:edit' member.id %}" method="post">
-    {% csrf_token %}
-
-        <label>Id</label>
-        <input type="text" value="{{ member.id }}"/>
-        <br>
-        <label>First name</label>
-        <input type="text" id="firstname" value="{{ member.first_name }}"/>
-        <br>
-        <label>Middle name</label>
-        <input type="text" id="middlename" value="{{ member.middle_name }}"/>
-        <br>
-        <label>Last name</label>
-        <input type="text" id="lastname" value="{{ member.last_name }}"/>
-        <br>
-        <label>Full name</label>
-        <input type="text" id="fullname" value="{{ member.full_name }}"/>
-        <br>
-        
+        {% csrf_token %}
+        <fieldset>
+            <label>First name</label>
+            <input type="text" name="firstname" value="{{ member.first_name }}"/>
+            <br>
+            <label>Middle name</label>
+            <input type="text" name="middlename" value="{{ member.middle_name }}"/>
+            <br>
+            <label>Last name</label>
+            <input type="text" name="lastname" value="{{ member.last_name }}"/>
+            <br>
+            <label>Full name</label>
+            <input type="text" name="fullname" value="{{ member.full_name }}"/>
+            <br>
+        </fieldset>
         <input type="submit" value="Edit">
     </form>
+
+    <a href="{% url 'members:index' %}"><button>Back</button></a>
 
 </body>
 </html>

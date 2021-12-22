@@ -9,28 +9,21 @@
 <body>
     <h1>Detail member</h1>
     <hr>
-    
-    <form action="{% url 'members:edit' member.id %}" method="post">
-        {% csrf_token %}
-        <fieldset>
-            <label hidden>Id</label>
-            <input hidden type="text" name="id" value="{{ member.id }}"/>
-            <br>
-            <label>First name</label>
-            <input type="text" name="firstname" value="{{ member.first_name }}"/>
-            <br>
-            <label>Middle name</label>
-            <input type="text" name="middlename" value="{{ member.middle_name }}"/>
-            <br>
-            <label>Last name</label>
-            <input type="text" name="lastname" value="{{ member.last_name }}"/>
-            <br>
-            <label>Full name</label>
-            <input type="text" name="fullname" value="{{ member.full_name }}"/>
-            <br>
-        </fieldset>
-        <input type="submit" value="Edit">
-    </form>
-
+    <label>Id:</label>
+    <label name="id">{{ member.id }}</label>
+    <br>
+    <label>First name:</label>
+    <label name="firstname">{{ member.first_name }}</label>
+    <br>
+    <label>Middle name:</label>
+    <label type="text" name="middlename">{{ member.middle_name }}</label>
+    <br>
+    <label>Last name:</label>
+    <label type="text" name="lastname">{{ member.last_name }}</label>
+    <br>
+    <label>Full name:</label>
+    <label type="text" name="fullname">{{ member.full_name }}</label>
+    <br>
+    <a href="{% url 'members:index' %}"><button>Back</button></a>
 </body>
 </html>
