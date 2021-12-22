@@ -36,21 +36,22 @@ class EditView(View):
 
     def post(self, request, member_id):
         form = MyForm(request.POST)
+        member = get_object_or_404(Member, pk=member_id)
 
         if form.is_valid():
-            member = get_object_or_404(Member, pk=member_id)
             member.first_name = form.cleaned_data['firstname']
             member.middle_name = form.cleaned_data['middlename']
             member.last_name = form.cleaned_data['lastname']
             member.full_name = form.cleaned_data['fullname']
             member.save()
+            # Always return an HttpResponseRedirect after successfully dealing
+            # with POST data. This prevents data from being posted twice if a
+            # user hits the Back button.
+            return HttpResponseRedirect(reverse("members:index"))
         else:
             context = {
                 'error_message': 'Form invalid.',
+                'member': member,
             }
-            return HttpResponseRedirect(reverse('members:edit', None, None,context))
-            return HttpResponseRedirect(request, 'edit.html', context)
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
-        return HttpResponseRedirect(reverse('members:index'))
+            return render(request, 'edit.html', context)
+        
