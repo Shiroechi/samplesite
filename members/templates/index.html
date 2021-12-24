@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="keywords" content="">
-</head>
-<body>
-    <h1>List member</h1>
-    <hr>
+{% extends "base.html" %}
+
+
+{% block title %} 
+    List member page
+{% endblock title %}
+
+{% block title_action %} 
+    List member
+{% endblock title_action %}
+
+{% block content %} 
+
     {% if members_list %}
         {% for member in members_list %}
             <li><a href="{% url 'members:detail' member.id %}">{{ member.full_name }}</a></li> <a href="{% url 'members:edit' member.id %}">Edit</a>
@@ -16,5 +18,5 @@
     {% else %}
         <p>No members are available.</p>
     {% endif %}
-</body>
-</html>
+
+{% endblock content %}

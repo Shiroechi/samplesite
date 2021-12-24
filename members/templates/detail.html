@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="keywords" content="">
-</head>
-<body>
-    <h1>Detail member</h1>
-    <hr>
+{% extends "base.html" %}
+
+
+{% block title %} 
+    Detail member page
+{% endblock title %}
+
+{% block title_action %} 
+    Detail member
+{% endblock title_action %}
+
+{% block content %} 
     <label>Id:</label>
     <label name="id">{{ member.id }}</label>
     <br>
@@ -25,5 +26,4 @@
     <label type="text" name="fullname">{{ member.full_name }}</label>
     <br>
     <a href="{% url 'members:index' %}"><button>Back</button></a>
-</body>
-</html>
+{% endblock content %}

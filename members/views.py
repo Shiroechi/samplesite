@@ -1,4 +1,4 @@
-from django.http.response import Http404
+from django.http.response import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
@@ -53,5 +53,6 @@ class EditView(View):
                 'error_message': 'Form invalid.',
                 'member': member,
             }
+            return HttpResponseBadRequest()
             return render(request, 'edit.html', context)
         
